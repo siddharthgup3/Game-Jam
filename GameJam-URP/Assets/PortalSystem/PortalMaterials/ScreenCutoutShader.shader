@@ -27,7 +27,7 @@ Shader "Unlit/ScreenCutoutShader"
 			struct appdata
 			{
 				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
+				//float2 uv : TEXCOORD0;
 			};
 
 			struct v2f
@@ -49,7 +49,7 @@ Shader "Unlit/ScreenCutoutShader"
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				i.screenPos /= i.screenPos.w;
+				i.screenPos /= i.screenPos.w;		 
 				fixed4 col = tex2D(_MainTex, float2(i.screenPos.x, i.screenPos.y));
 				
 				return col;
