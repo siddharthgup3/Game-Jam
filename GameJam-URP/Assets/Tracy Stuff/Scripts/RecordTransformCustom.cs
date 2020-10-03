@@ -63,7 +63,6 @@ public struct SerializableVector3
 }
 public class RecordTransformCustom : MonoBehaviour 
 {
-    public GameObject ghost;
 
     public GameProgress game;
 
@@ -72,7 +71,7 @@ public class RecordTransformCustom : MonoBehaviour
 	public List<SerializableVector3> positions;
     [HideInInspector]
 	public bool isRecording = true;
-
+    
     void OnEnable () 
 	{
         PlayerData data = SaveSystem.LoadPLayer();
@@ -95,15 +94,49 @@ public class RecordTransformCustom : MonoBehaviour
             isRecording = true;
         }
     }
-    public void NewGhost()
+    public void NewGhost(int type, int num)
     {
+        type += 1;
+        print("New Ghost type = " + type +" amd num = " + num);
         isRecording = false;
+        if (type == 1 && num == 1)
+        {
+            print("Ghost wall 1 overWritten");
 
-        game.ghost_Wall = new List<SerializableVector3>(positions);
+            game.ghost_Wall_1 = new List<SerializableVector3>(positions);
+        }
+        else if(type == 1 && num == 2)
+        {
+            game.ghost_Wall_2 = new List<SerializableVector3>(positions);
+        }
+        else if (type == 1 && num == 3)
+        {
+            game.ghost_Wall_3 = new List<SerializableVector3>(positions);
+        }
+        
+        else if (type == 2 && num == 1)
+        {
+            print("Ghost Kill 1 overWritten");
+            game.ghost_Kill_1 = new List<SerializableVector3>(positions);
+        }
+        else if (type == 2 && num == 2)
+        {
+            game.ghost_Kill_2 = new List<SerializableVector3>(positions);
+        }
+        else if (type == 2 && num == 3)
+        {
+            game.ghost_Kill_3 = new List<SerializableVector3>(positions);
+        } 
        
-        ghost.SetActive(true);
+       // isRecording = false;
+
+       // game.ghost_Wall_1 = new List<SerializableVector3>(positions);
+
 
         positions.Clear();
         isRecording = true;
+
+        //positions.Clear();
+        //isRecording = true;
     }
 }
