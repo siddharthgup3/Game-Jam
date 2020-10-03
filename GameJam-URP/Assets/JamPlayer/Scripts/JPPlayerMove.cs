@@ -1,72 +1,55 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(CharacterController))]
 
 public class JPPlayerMove : MonoBehaviour
 {
-    [Header("Players Dedicated Physics Settings")]
-    public float mass = 1.0f;
-    public float jumpSmoothing = 7.0f;
-    public float dashSmoothing = 7.0f;
+    #region Vars
+    [Header("EnableUnlimitedJump")]
+    public bool unlimitedDebugJumps;
+
+    private bool hasSingleJump;
+    private bool hasDoubleJump;
+    private int doubleJumpCount;
+    private bool isDoubleJumping;
+
+    private float mass = 1.0f;
+    private float jumpSmoothing = 7.0f;
+    private float dashSmoothing = 7.0f;
     public float realGravity = -10.0f;
 
-    #region Serialized Variables
-    [Header("Player Dynamic Floats")]
-    [SerializeField] public float generatedGravity;
-    [SerializeField] public float jumpCount = 2f;
-    [SerializeField] private float initialSpeed;
-    [SerializeField] private float modifiedSpeed;
-    [SerializeField] public float playersActualSpeed;
+    private float generatedGravity;
 
-    [Header("Player Dynamic Vectors")]
-    [SerializeField] private Vector3 groundedInput;
-    [SerializeField] private Vector3 airbourneInput;
-    [SerializeField] private Vector3 jump;
-    [SerializeField] private Vector3 dash;
-    [SerializeField] public Vector3 finalVelocity;
-    [SerializeField] private Vector3 playersLastPosition;
+    private Vector3 groundedInput;
+    private Vector3 airbourneInput;
+    private Vector3 jump;
+    private Vector3 dash;
+    private Vector3 finalVelocity;
 
-    [Header("Player Dynamic Bools")]
-    [SerializeField] public bool isAiming;
-    [SerializeField] public bool isCrouching;
-    [SerializeField] public bool isRunning;
-    [SerializeField] public bool isSliding;
-    [SerializeField] public bool isDashing;
-    [SerializeField] public bool obstacleOverhead;
-    [SerializeField] public bool isGrounded;
-    [SerializeField] public bool isClimbing;
-    [SerializeField] public bool isInAir;
-
-    [Header("Variables Assigned Via Script")]
-    [SerializeField] private float jumpMagnitude = 0.25f;
-    [SerializeField] private float dashMagnitude = 0.25f;
-    [SerializeField] private Vector3 standingVector = new Vector3(0, 0, 0);
-    [SerializeField] private Vector3 crouchingVector = new Vector3(0, 0.5f, 0);
+    private float jumpMagnitude = 0.25f;
+    private float dashMagnitude = 0.25f;
+    private Vector3 standingVector = new Vector3(0, 0, 0);
 
     public float jumpForce = 10.0f;
-    public float dashForce = 15.0f;
-    public float airSpeed = 3.5f;
-    public float momentumDampingSpeed = 0.5f;
-    public float groundMomentumDampingSpeed = 10.0f;
-    public float walkSpeed = 5.0f;
-    public float allowedJumps = 2.0f;
+    private float dashForce = 15.0f;
+    private float airSpeed = 3.5f;
+    private float momentumDampingSpeed = 0.5f;
+    private float groundMomentumDampingSpeed = 10.0f;
+    private float walkSpeed = 5.0f;
 
-    [SerializeField] private AudioSource audioSrc;
-    [SerializeField] private CharacterController myCC;
+    private AudioSource audioSrc;
+    private CharacterController myCC;
+    private Camera myCam;
 
-    [Header("Variables Assigned Via Editor")]
+    [Header("Sound Clips")]
     public AudioClip jumpSound;
     public AudioClip dashSound;
-    public AudioClip landSound;
-    public Camera myCam;
     #endregion
 
     void Awake()
     {
         // Get Components
-
+        myCam = Camera.main;
         audioSrc = GetComponent<AudioSource>();
         myCC = GetComponent<CharacterController>();
     }
@@ -74,7 +57,7 @@ public class JPPlayerMove : MonoBehaviour
     void Update()
     {
         GroundCheck();
-        CrouchCheck();
+        BrokenAssCrouchMethod();  // if you remove (cc and/or portals break)
         Jump();
         DashCheck();
         Move();
@@ -93,7 +76,6 @@ public class JPPlayerMove : MonoBehaviour
         if (dash.magnitude > dashMagnitude)
         {
             finalVelocity += dash;
-            StartCoroutine(Dash());
         }
 
         if (jump.magnitude > jumpMagnitude)
@@ -141,14 +123,48 @@ public class JPPlayerMove : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount > 0) //&& myCC.isGrounded
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            ResetVerticalVelocity();
+            if (hasSingleJump)
+            {
+                ResetVerticalVelocity();
 
-            // add jump here
-            jump += Vector3.up.normalized * (jumpForce) / mass;
-            jumpCount--;
+                // add jump here
+                jump += Vector3.up.normalized * (jumpForce) / mass;
+                hasSingleJump = false;
+            }
+
+            if (hasDoubleJump && doubleJumpCount > 0)
+            {
+                isDoubleJumping = true;
+                ResetVerticalVelocity();
+
+                // add jump here
+                jump += Vector3.up.normalized * (jumpForce) / mass;
+                doubleJumpCount--;
+            }
+
+            if (unlimitedDebugJumps)
+            {
+                ResetVerticalVelocity();
+
+                // add jump here
+                jump += Vector3.up.normalized * (jumpForce) / mass;
+            }
         }
+    }
+
+    [ContextMenu("Add Single Jump")]
+    public void GiveSingleJump()
+    {
+        hasSingleJump = true;
+    }
+
+    [ContextMenu("Add Double Jump")]
+    public void GiveDoubleJump()
+    {
+        hasDoubleJump = true;
+        doubleJumpCount = 2;
     }
 
     private void DashCheck()
@@ -206,29 +222,17 @@ public class JPPlayerMove : MonoBehaviour
         }
     }
 
-    private void CrouchCheck()
+    private void BrokenAssCrouchMethod()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            isCrouching = true;
-            // Height and Center deltaMaxs need to match
-            myCC.height = Mathf.MoveTowards(myCC.height, 1f, (7f * Time.deltaTime));
-            myCC.center = Vector3.MoveTowards(myCC.center, crouchingVector, (7f * Time.deltaTime));
-        }
-        else if(!obstacleOverhead)
-        {
-            isCrouching = false;
-            // Height and Center deltaMaxs need to match
-            myCC.height = Mathf.MoveTowards(myCC.height, 2f, (5f * Time.deltaTime));
-            myCC.center = Vector3.MoveTowards(myCC.center, standingVector, (5f * Time.deltaTime));
-        }
+       myCC.center = standingVector;
     }
 
     private void GroundCheck()
     {
-        if (myCC.isGrounded)
+        if (isDoubleJumping && myCC.isGrounded)
         {
-            jumpCount = allowedJumps;
+            hasDoubleJump = false;
+            doubleJumpCount = 0;
         }
     }
 
@@ -236,12 +240,5 @@ public class JPPlayerMove : MonoBehaviour
     {
         jump.y = 0f;
         generatedGravity = 0f;
-    }
-
-    private IEnumerator Dash()
-    {
-        isDashing = true;
-        yield return new WaitForSeconds(.3f);
-        isDashing = false;
     }
 }

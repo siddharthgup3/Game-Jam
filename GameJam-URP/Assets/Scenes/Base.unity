@@ -655,6 +655,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitPortal
       objectReference: {fileID: 0}
+    - target: {fileID: 8829697773747580901, guid: 8606125581e7b7c459a9813c34bfcf1f,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1569773437}
     - target: {fileID: 8829697773747580903, guid: 8606125581e7b7c459a9813c34bfcf1f,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2580,10 +2585,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: JamPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 979864468132413874, guid: a511259a4d3e05b4eb75b6445e843c6b,
+        type: 3}
+      propertyPath: realGravity
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 979864468132413874, guid: a511259a4d3e05b4eb75b6445e843c6b,
+        type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 979864468132413874, guid: a511259a4d3e05b4eb75b6445e843c6b,
+        type: 3}
+      propertyPath: unlimitedDebugJumps
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 979864468132413879, guid: a511259a4d3e05b4eb75b6445e843c6b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.84
+      value: -10.3
       objectReference: {fileID: 0}
     - target: {fileID: 979864468132413879, guid: a511259a4d3e05b4eb75b6445e843c6b,
         type: 3}
@@ -2593,7 +2613,7 @@ PrefabInstance:
     - target: {fileID: 979864468132413879, guid: a511259a4d3e05b4eb75b6445e843c6b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.89
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 979864468132413879, guid: a511259a4d3e05b4eb75b6445e843c6b,
         type: 3}
@@ -2635,8 +2655,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5021952778162600312, guid: a511259a4d3e05b4eb75b6445e843c6b,
+        type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 2099088787}
+    - target: {fileID: 5021952778162600312, guid: a511259a4d3e05b4eb75b6445e843c6b,
+        type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 1340627299}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a511259a4d3e05b4eb75b6445e843c6b, type: 3}
+--- !u!4 &1569773437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5199584969401172305, guid: a511259a4d3e05b4eb75b6445e843c6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569773436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1759836582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,7 +3165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141060478}
   m_Layer: 0
-  m_Name: Level
+  m_Name: TestLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
