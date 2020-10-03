@@ -13,15 +13,28 @@ public enum CollectibleType
     DecreaseTime = 3 //Doesn't affect controller
 }
 
+
+
 public class Collectible : MonoBehaviour
 {
     [SerializeField] private CollectibleType _collectibleType;
     [SerializeField] private int modifyingCount;
+    private AudioSource aSrc;
+
+
+    private void Start()
+    {
+        aSrc = GetComponentInParent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            aSrc.Play();
+            Debug.Log("detected player");
+
+
             if ((int) _collectibleType % 2 == 0) //Affects player controller
             {
                 var playerPowerUp = other.GetComponent<PlayerPowerUp>();
