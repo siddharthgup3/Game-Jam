@@ -171,32 +171,32 @@ public class JPPlayerMove : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (!myCC.isGrounded && Input.GetKey(KeyCode.W))
-            {
-                ResetVerticalVelocity();
-                audioSrc.PlayOneShot(dashSound);
-                dash += Camera.main.transform.forward * (dashForce * 1f);
-            }
-            else if (!myCC.isGrounded && Input.GetKey(KeyCode.S))
-            {
-                ResetVerticalVelocity();
-                audioSrc.PlayOneShot(dashSound);
-                dash += -Camera.main.transform.forward * (dashForce * 1f);
-            }
-            else if (!myCC.isGrounded && Input.GetKey(KeyCode.A))
-            {
-                ResetVerticalVelocity();
-                audioSrc.PlayOneShot(dashSound);
-                dash += -Camera.main.transform.right * (dashForce * 1.8f);
-            }
-            else if (!myCC.isGrounded && Input.GetKey(KeyCode.D))
-            {
-                ResetVerticalVelocity();
-                audioSrc.PlayOneShot(dashSound);
-                dash += Camera.main.transform.right * (dashForce * 1.8f);
-            }
+            //if (!myCC.isGrounded && Input.GetKey(KeyCode.W))
+            //{
+            //    ResetVerticalVelocity();
+            //    audioSrc.PlayOneShot(dashSound);
+            //    dash += Camera.main.transform.forward * (dashForce * 1f);
+            //}
+            //else if (!myCC.isGrounded && Input.GetKey(KeyCode.S))
+            //{
+            //    ResetVerticalVelocity();
+            //    audioSrc.PlayOneShot(dashSound);
+            //    dash += -Camera.main.transform.forward * (dashForce * 1f);
+            //}
+            //else if (!myCC.isGrounded && Input.GetKey(KeyCode.A))
+            //{
+            //    ResetVerticalVelocity();
+            //    audioSrc.PlayOneShot(dashSound);
+            //    dash += -Camera.main.transform.right * (dashForce * 1.8f);
+            //}
+            //else if (!myCC.isGrounded && Input.GetKey(KeyCode.D))
+            //{
+            //    ResetVerticalVelocity();
+            //    audioSrc.PlayOneShot(dashSound);
+            //    dash += Camera.main.transform.right * (dashForce * 1.8f);
+            //}
 
-            else if (myCC.isGrounded) // is Grounded
+            if (myCC.isGrounded) // is Grounded
             {
                 if (Input.GetKey(KeyCode.W))
                 {
