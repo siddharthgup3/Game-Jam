@@ -519,12 +519,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160724423}
-  m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: -11.95, y: 1.57, z: -18.34}
-  m_LocalScale: {x: 0.52227, y: 0.42028648, z: 0.52227026}
+  m_LocalRotation: {x: 0.000000017733814, y: 0.000000119209275, z: 1, w: -0.000000077096495}
+  m_LocalPosition: {x: 2.9600003, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 1142142433}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!43 &174141886
 Mesh:
@@ -6728,8 +6728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b371d11ac8c0784eb95adada1267d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalSound: {fileID: 0}
-  otherPortal: {fileID: 160724423}
+  portalSound: {fileID: 8300000, guid: a8f9ecd2a97495d4b83611b8cc54361d, type: 3}
+  otherPortal: {fileID: 1142142432}
 --- !u!114 &676487471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19627,6 +19627,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1142142432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142142433}
+  m_Layer: 0
+  m_Name: EntrancePortal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142142433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142142432}
+  m_LocalRotation: {x: 0.000000041975653, y: -0.7071058, z: -0.70710784, w: -0.00000006705522}
+  m_LocalPosition: {x: -10.40408, y: 1.57, z: -18.34}
+  m_LocalScale: {x: 0.52227014, y: 0.4202866, z: 0.5222704}
+  m_Children:
+  - {fileID: 160724428}
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.99998}
 --- !u!43 &1152809845
 Mesh:
   m_ObjectHideFlags: 0
@@ -20729,8 +20760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b371d11ac8c0784eb95adada1267d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalSound: {fileID: 0}
-  otherPortal: {fileID: 160724423}
+  portalSound: {fileID: 8300000, guid: a8f9ecd2a97495d4b83611b8cc54361d, type: 3}
+  otherPortal: {fileID: 1142142432}
 --- !u!114 &1384248348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20981,8 +21012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b371d11ac8c0784eb95adada1267d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalSound: {fileID: 0}
-  otherPortal: {fileID: 160724423}
+  portalSound: {fileID: 8300000, guid: a8f9ecd2a97495d4b83611b8cc54361d, type: 3}
+  otherPortal: {fileID: 1142142432}
 --- !u!43 &1540670541
 Mesh:
   m_ObjectHideFlags: 0
@@ -23331,8 +23362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b371d11ac8c0784eb95adada1267d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalSound: {fileID: 0}
-  otherPortal: {fileID: 160724423}
+  portalSound: {fileID: 8300000, guid: a8f9ecd2a97495d4b83611b8cc54361d, type: 3}
+  otherPortal: {fileID: 1142142432}
 --- !u!114 &1652862757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23794,7 +23825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalSound: {fileID: 0}
-  otherPortal: {fileID: 160724423}
+  otherPortal: {fileID: 1142142432}
 --- !u!43 &1883629067
 Mesh:
   m_ObjectHideFlags: 0
@@ -24423,8 +24454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b371d11ac8c0784eb95adada1267d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalSound: {fileID: 0}
-  otherPortal: {fileID: 160724423}
+  portalSound: {fileID: 8300000, guid: a8f9ecd2a97495d4b83611b8cc54361d, type: 3}
+  otherPortal: {fileID: 1142142432}
 --- !u!114 &2000512155
 MonoBehaviour:
   m_ObjectHideFlags: 0
