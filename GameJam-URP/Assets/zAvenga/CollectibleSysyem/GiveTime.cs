@@ -15,7 +15,7 @@ public enum CollectibleType
 
 
 
-public class Collectible : MonoBehaviour
+public class GiveTime : MonoBehaviour
 {
     [SerializeField] private CollectibleType _collectibleType;
     [SerializeField] private int modifyingCount;
