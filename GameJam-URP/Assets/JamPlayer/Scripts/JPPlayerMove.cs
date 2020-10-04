@@ -217,6 +217,7 @@ public class JPPlayerMove : MonoBehaviour
                 {
                     audioSrc.PlayOneShot(dashSound);
                     dash += transform.right * dashForce;
+
                 }
             }
         }

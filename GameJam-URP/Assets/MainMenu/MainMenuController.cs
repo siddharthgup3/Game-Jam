@@ -8,6 +8,10 @@ public class MainMenuController : MonoBehaviour
     // Start is called before the first frame update
 
 
+    public Animator textAnim;
+    public Animator whiteBGAnim;
+
+
     private AudioSource audioSrc;
     public AudioClip hoverAudio;
     public AudioClip clickAudio;
@@ -59,17 +63,17 @@ public class MainMenuController : MonoBehaviour
     public void ScaleTop()
     {
         topBG.color = topColorHover;
-        top.transform.localScale = new Vector3(1.02f, 1,1);
+        top.transform.localScale = new Vector3(1.1f, 1.05f,1);
     }
     public void ScaleMiddle()
     {
         middleBG.color = middleColorHover;
-        middle.transform.localScale = new Vector3(1.02f, 1, 1);
+        middle.transform.localScale = new Vector3(1.1f, 1.05f, 1);
     }
     public void ScaleBottom()
     {
         bottomBG.color = bottomColorHover;
-        bottom.transform.localScale = new Vector3(1.02f, 1, 1);
+        bottom.transform.localScale = new Vector3(1.1f, 1.05f, 1);
     }
 
 
@@ -90,7 +94,34 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayClickAudio()
     {
+
         audioSrc.PlayOneShot(clickAudio);
+    }
+
+
+    public void StartGame()
+    {
+
+        //load next scene
+        textAnim.SetTrigger("FlyOut");
+        whiteBGAnim.SetTrigger("FlyOut");
+
+
+    }
+
+    public void Options()
+    {
+
+        //open options menu ?? maybe
+
+
+    }
+
+    public void ExitGame()
+    {
+
+        Application.Quit();
+
     }
 
 }

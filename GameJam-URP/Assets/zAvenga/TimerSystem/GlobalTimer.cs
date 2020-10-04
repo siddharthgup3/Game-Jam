@@ -43,6 +43,9 @@ public class GlobalTimer : MonoBehaviour
     private void LevelNotCompleted()
     {
         Debug.Log($"YOU DIDN'T COMPLETE THE LEVEL YOU FUCK");
+
+        BlackFader.FadeToBlack();
+
         RestartMechanic.RestartGame();
     }
 
