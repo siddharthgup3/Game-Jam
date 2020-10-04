@@ -49,7 +49,7 @@ public class JPPlayerMove : MonoBehaviour
     float singleJumpCount = 0f;
 
     public float dashCooldown;
-    private float dashCooldownDuration = .5f;
+    private float dashCooldownDuration = 1f;
 
     void Awake()
     {

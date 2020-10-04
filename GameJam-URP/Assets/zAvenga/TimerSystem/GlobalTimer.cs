@@ -13,6 +13,7 @@ public class GlobalTimer : MonoBehaviour
     public float maxLevelTime = 15f;
     private static float timeToBuzzer;
     public float timeScaleOfTimer = 1f;
+
     
     public TextMeshProUGUI txt;
     private void OnEnable()
@@ -20,6 +21,11 @@ public class GlobalTimer : MonoBehaviour
         timeSinceStart = 0;
         timeToBuzzer = maxLevelTime;
     }
+
+
+    
+
+
 
     private void Update()
     {
@@ -29,8 +35,30 @@ public class GlobalTimer : MonoBehaviour
 
             BlackFader.FadeToBlack();
         }
-        
-        
+
+
+        if (enabled)
+        {
+
+            if (Input.GetKeyDown(restartKey))
+            {
+                RestartMechanic.RestartGame();
+
+                BlackFader.FadeToBlack();
+            }
+
+            timeSinceStart += Time.deltaTime;
+            timeToBuzzer -= Time.deltaTime * timeScaleOfTimer;
+
+            txt.text = timeToBuzzer.ToString("F2");
+
+            if (timeToBuzzer <= 0)
+            {
+                LevelNotCompleted();
+            }
+        }
+
+
         timeSinceStart += Time.deltaTime;
         timeToBuzzer -= Time.deltaTime * timeScaleOfTimer;
 

@@ -7,7 +7,11 @@ public class PortalScript : MonoBehaviour {
     public AudioClip portalSound;
     public GameObject otherPortal;
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
+
+        BlackFader.FadeFromBlack();
+
 
         if (other.CompareTag("Player")) {
             other.GetComponentInChildren<JPPlayerCam>().enabled = false;
