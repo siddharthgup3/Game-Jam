@@ -26,6 +26,8 @@ public class GlobalTimer : MonoBehaviour
         if (Input.GetKeyDown(restartKey))
         {
             RestartMechanic.RestartGame();
+
+            BlackFader.FadeToBlack();
         }
         
         

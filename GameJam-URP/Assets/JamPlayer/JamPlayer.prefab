@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 979864468132413874}
   - component: {fileID: 5021952778162600312}
   - component: {fileID: 713135936}
+  - component: {fileID: 23223143360086143}
   m_Layer: 10
   m_Name: JamPlayer
   m_TagString: Player
@@ -216,6 +217,7 @@ MonoBehaviour:
   jumpForce: 20
   jumpSound: {fileID: 8300000, guid: 6d06e27512cf25942aa239e69cba8932, type: 3}
   dashSound: {fileID: 8300000, guid: 3d6999566db34da42ac2be18e865240e, type: 3}
+  dashCooldown: 0
 --- !u!114 &5021952778162600312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +233,7 @@ MonoBehaviour:
   game: {fileID: 0}
   currentTick: 0
   positions: []
-  isRecording: 1
+  isRecording: 0
 --- !u!114 &713135936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +246,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b621c050285ea4890d124cc33eb845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &23223143360086143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979864468132413864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982ae2fe66753f04f8f636910a18ac5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 979864468132413878}
+  firstClip: {fileID: 8300000, guid: d1defec9f764bbe45ad7e3114b030782, type: 3}
 --- !u!1 &5199584969363753977
 GameObject:
   m_ObjectHideFlags: 0

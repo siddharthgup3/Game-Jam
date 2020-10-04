@@ -9,14 +9,14 @@ public class DoorLightTrigger : MonoBehaviour
     public GameObject doorLight2;
 
     public Material whiteAmbient;
-    private AudioSource aSrc;
+   // private AudioSource aSrc;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        aSrc = GetComponent<AudioSource>();
+        //aSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class DoorLightTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            aSrc.Play();
+          //  aSrc.Play();
             doorLight1.GetComponent<Renderer>().material = whiteAmbient;
             doorLight2.GetComponent<Renderer>().material = whiteAmbient;
 
