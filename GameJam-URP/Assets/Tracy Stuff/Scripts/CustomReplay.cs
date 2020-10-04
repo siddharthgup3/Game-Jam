@@ -21,7 +21,32 @@ public class CustomReplay : MonoBehaviour
     void OnEnable()
     {
         SaveSystem.LoadPLayer();
-        tick += 1;
+        /*
+        if (ghostType == GhostType.kill && ghostNumber == 1)
+        {
+            tick += (game.ghost_Kill_1.Count / 2);
+        }
+        if (ghostType == GhostType.kill && ghostNumber == 2)
+        {
+            tick += (game.ghost_Kill_2.Count / 2);
+        }
+        if (ghostType == GhostType.kill && ghostNumber == 3)
+        {
+            tick += (game.ghost_Kill_3.Count / 2);
+        }
+        if (ghostType == GhostType.wall && ghostNumber == 1)
+        {
+            tick += (game.ghost_Wall_1.Count / 9);
+        }
+        if (ghostType == GhostType.wall && ghostNumber == 2)
+        {
+            tick += (game.ghost_Wall_2.Count / 9);
+        }
+        if (ghostType == GhostType.wall && ghostNumber == 3)
+        {
+            tick += (game.ghost_Wall_3.Count / 9);
+        }
+        */
     }
 
 	void FixedUpdate()

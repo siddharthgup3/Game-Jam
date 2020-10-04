@@ -82,17 +82,19 @@ public class RecordTransformCustom : MonoBehaviour
         {
             positions.Add(transform.position);
         }
+       /*
         else
         {
-            /*
-            foreach (SerializableVector3 pos in positions)
-            {
-                Instantiate(recentPosMarker, pos, transform.rotation);
-            }
-            */
+
+           // foreach (SerializableVector3 pos in positions)
+           // {
+           //   Instantiate(recentPosMarker, pos, transform.rotation);
+           // }
+            
             positions.Clear();
             isRecording = true;
         }
+        */
     }
     public void NewGhost(int type, int num)
     {
@@ -102,7 +104,6 @@ public class RecordTransformCustom : MonoBehaviour
         if (type == 1 && num == 1)
         {
             print("Ghost wall 1 overWritten");
-
             game.ghost_Wall_1 = new List<SerializableVector3>(positions);
         }
         else if(type == 1 && num == 2)
@@ -134,7 +135,7 @@ public class RecordTransformCustom : MonoBehaviour
 
 
         positions.Clear();
-        isRecording = true;
+        //isRecording = true;
 
         //positions.Clear();
         //isRecording = true;

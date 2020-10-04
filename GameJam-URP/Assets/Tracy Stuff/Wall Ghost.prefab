@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6412901374968693698}
   - component: {fileID: 7055588823977910706}
   m_Layer: 0
-  m_Name: MArker test
+  m_Name: Wall Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c735691669212df4ca90d435d65a8822, type: 2}
+  - {fileID: 2100000, guid: ed47bb004687d904aa060ec4bcf1266c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4812,8 +4812,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c735691669212df4ca90d435d65a8822, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ed47bb004687d904aa060ec4bcf1266c, type: 2}
+  - {fileID: 2100000, guid: ed47bb004687d904aa060ec4bcf1266c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

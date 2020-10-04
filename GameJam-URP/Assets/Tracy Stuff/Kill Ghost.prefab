@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7141032897760585591}
   - component: {fileID: 6412901374968693698}
   - component: {fileID: 7055588823977910706}
-  - component: {fileID: 7104354966164090420}
+  - component: {fileID: 3042490201004299420}
   m_Layer: 0
   m_Name: Kill Ghost
   m_TagString: Untagged
@@ -95,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7104354966164090420
+--- !u!114 &3042490201004299420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981299176093021213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4b36964724e91f458b896eb8c3f432f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a810d1cea0a74e4e91a2844effa9e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2282098019199657386

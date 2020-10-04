@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 979864468132413875}
   - component: {fileID: 979864468132413874}
   - component: {fileID: 5021952778162600312}
+  - component: {fileID: 713135936}
   m_Layer: 10
   m_Name: JamPlayer
   m_TagString: Player
@@ -210,34 +211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21341091d379c740b7ea87fe22b23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSingleJump: 0
-  canDoubleJump: 0
-  walkSpeed: 6
-  jumpForce: 10
-  dashForce: 15
-  airSpeed: 3.5
-  momentumDampingSpeed: 0.5
-  groundMomentumDampingSpeed: 10
-  mass: 1
-  jumpSmoothing: 7
-  dashSmoothing: 7
+  unlimitedDebugJumps: 1
   realGravity: -10
-  generatedGravity: 0
-  initialSpeed: 0
-  groundedInput: {x: 0, y: 0, z: 0}
-  airbourneInput: {x: 0, y: 0, z: 0}
-  jump: {x: 0, y: 0, z: 0}
-  dash: {x: 0, y: 0, z: 0}
-  finalVelocity: {x: 0, y: 0, z: 0}
-  playersLastPosition: {x: 0, y: 0, z: 0}
-  isDashing: 0
-  jumpMagnitude: 0.25
-  dashMagnitude: 0.25
-  audioSrc: {fileID: 0}
-  myCC: {fileID: 0}
+  jumpForce: 20
   jumpSound: {fileID: 8300000, guid: 6d06e27512cf25942aa239e69cba8932, type: 3}
   dashSound: {fileID: 8300000, guid: 3d6999566db34da42ac2be18e865240e, type: 3}
-  myCam: {fileID: 5199584969401172309}
 --- !u!114 &5021952778162600312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,11 +228,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341b8bca647a95445a40681ae93aaca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghost: {fileID: 0}
   game: {fileID: 0}
   currentTick: 0
   positions: []
   isRecording: 1
+--- !u!114 &713135936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979864468132413864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b621c050285ea4890d124cc33eb845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5199584969363753977
 GameObject:
   m_ObjectHideFlags: 0
