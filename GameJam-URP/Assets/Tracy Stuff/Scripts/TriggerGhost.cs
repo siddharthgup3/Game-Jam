@@ -50,6 +50,8 @@ public class TriggerGhost : MonoBehaviour
             record.NewGhost(ghostType.GetHashCode(), ghostNumber);
             SaveSystem.SavePlayer(game);
             ghost.SetActive(true);
+            this.enabled = false;
+
         }
     }
 }

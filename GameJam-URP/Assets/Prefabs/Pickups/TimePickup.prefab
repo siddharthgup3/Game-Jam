@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6788585090816656692}
   - component: {fileID: 1860472523}
   m_Layer: 0
-  m_Name: CollectilePrefab
+  m_Name: TimePickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,10 +3,11 @@
 public class FadeInMat : MonoBehaviour
 {
     // Blends between two materials
-    public bool fading;
+    [HideInInspector]
+    public bool reverse;
     Material material1;
     public Material material2;
-    float duration = 2.0f;
+    public float duration = 2.0f;
     Renderer rend;
 
     void Start()
@@ -22,5 +23,10 @@ public class FadeInMat : MonoBehaviour
         // ping-pong between the materials over the duration
             float lerp = Mathf.PerlinNoise(Time.time, duration) / duration;
             rend.material.Lerp(material1, material2, lerp);
+        if (reverse)
+        {
+            float lerp2 = Mathf.PerlinNoise(Time.time, duration) / duration;
+            rend.material.Lerp(material2, material1, lerp2);
+        }
     }
 }
