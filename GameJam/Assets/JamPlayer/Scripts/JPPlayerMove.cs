@@ -61,12 +61,6 @@ public class JPPlayerMove : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         myCC = GetComponent<CharacterController>();
     }
-
-    private void Start()
-    {
-        dashCooldown = dashCooldownDuration;
-    }
-
     void Update()
     {
         GroundCheck();
