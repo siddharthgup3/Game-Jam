@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -48,8 +49,10 @@ public class JPPlayerMove : MonoBehaviour
 
     float singleJumpCount = 0f;
 
+    public TextMeshProUGUI jumpCount;
+
     public float dashCooldown;
-    private float dashCooldownDuration = 1f;
+    public float dashCooldownDuration = 1f;
 
     void Awake()
     {
@@ -73,6 +76,8 @@ public class JPPlayerMove : MonoBehaviour
         Move();
 
         dashCooldown = dashCooldown - Time.deltaTime;
+
+        jumpCount.text = singleJumpCount.ToString();
 
     }
 

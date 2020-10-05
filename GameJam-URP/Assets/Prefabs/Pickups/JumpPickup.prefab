@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6788585090816656692}
   - component: {fileID: 1860472523}
   m_Layer: 0
-  m_Name: JumpCollectible
+  m_Name: JumpPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f83aa42b6bd2e6b40838125551b3bcca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d825a8daf3055a6469b2adf50ff04eb0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.518
   m_Pitch: 1
