@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -46,12 +47,24 @@ public class JPPlayerMove : MonoBehaviour
     public AudioClip dashSound;
     #endregion
 
+    float singleJumpCount = 0f;
+
+    public TextMeshProUGUI jumpCount;
+
+    public float dashCooldown;
+    public float dashCooldownDuration = 1f;
+
     void Awake()
     {
         // Get Components
         myCam = Camera.main;
         audioSrc = GetComponent<AudioSource>();
         myCC = GetComponent<CharacterController>();
+    }
+
+    private void Start()
+    {
+        dashCooldown = dashCooldownDuration;
     }
 
     void Update()
@@ -61,6 +74,11 @@ public class JPPlayerMove : MonoBehaviour
         Jump();
         DashCheck();
         Move();
+
+        dashCooldown = dashCooldown - Time.deltaTime;
+
+        jumpCount.text = singleJumpCount.ToString();
+
     }
 
     private void Move()
@@ -125,13 +143,13 @@ public class JPPlayerMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (hasSingleJump)
+            if (singleJumpCount > 0)
             {
                 ResetVerticalVelocity();
 
                 // add jump here
                 jump += Vector3.up.normalized * (jumpForce) / mass;
-                hasSingleJump = false;
+                singleJumpCount--;
             }
 
             if (hasDoubleJump && doubleJumpCount > 0)
@@ -157,7 +175,7 @@ public class JPPlayerMove : MonoBehaviour
     [ContextMenu("Add Single Jump")]
     public void GiveSingleJump()
     {
-        hasSingleJump = true;
+        singleJumpCount++;
     }
 
     [ContextMenu("Add Double Jump")]
@@ -169,7 +187,7 @@ public class JPPlayerMove : MonoBehaviour
 
     private void DashCheck()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && dashCooldown <= 0)
         {
             //if (!myCC.isGrounded && Input.GetKey(KeyCode.W))
             //{
@@ -202,21 +220,25 @@ public class JPPlayerMove : MonoBehaviour
                 {
                     audioSrc.PlayOneShot(dashSound);
                     dash += transform.forward * dashForce;
+                    dashCooldown = dashCooldownDuration;
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
                     audioSrc.PlayOneShot(dashSound);
                     dash += -transform.forward * dashForce;
+                    dashCooldown = dashCooldownDuration;
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
                     audioSrc.PlayOneShot(dashSound);
                     dash += -transform.right * dashForce;
+                    dashCooldown = dashCooldownDuration;
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
                     audioSrc.PlayOneShot(dashSound);
                     dash += transform.right * dashForce;
+                    dashCooldown = dashCooldownDuration;
 
                 }
             }

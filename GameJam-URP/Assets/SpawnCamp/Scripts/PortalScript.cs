@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PortalScript : MonoBehaviour {
 
+    public AudioClip portalSound;
     public GameObject otherPortal;
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
+
+        BlackFader.FadeFromBlack();
+
 
         if (other.CompareTag("Player")) {
             other.GetComponentInChildren<JPPlayerCam>().enabled = false;
@@ -18,6 +23,8 @@ public class PortalScript : MonoBehaviour {
             other.transform.position = otherPortal.transform.position;
             other.transform.rotation = Quaternion.Euler(v.x, y.y, v.z);
             other.GetComponentInChildren<JPPlayerCam>().enabled = true;
+
+            SoundController.instance.PlayClip(portalSound);
         }
     }
 }
