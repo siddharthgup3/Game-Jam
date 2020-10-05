@@ -25,6 +25,8 @@ public class PortalScript : MonoBehaviour {
             other.GetComponentInChildren<JPPlayerCam>().enabled = true;
 
             SoundController.instance.PlayClip(portalSound);
+
+            gameObject.SetActive(false);
         }
     }
 }
