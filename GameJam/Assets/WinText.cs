@@ -31,7 +31,7 @@ public class WinText : MonoBehaviour
             tracyGO.SetActive(true);
         }
 
-        if (spawn)
+        if (anti)
         {
             antiGO.SetActive(true);
         }

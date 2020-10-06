@@ -6,12 +6,21 @@ public class PortalScript : MonoBehaviour {
 
     public AudioClip portalSound;
     public GameObject otherPortal;
+    public PortalCounter portalCounter;
 
     private void OnTriggerEnter(Collider other)
     {
-
         BlackFader.FadeFromBlack();
 
+        if(portalCounter != null)
+        {
+            portalCounter.portalCount++;
+        }
+        else {
+
+            Debug.Log("No Portal Counter Was Found In Scene.");
+        
+        }
 
         if (other.CompareTag("Player")) {
             other.GetComponentInChildren<JPPlayerCam>().enabled = false;
